@@ -47,3 +47,24 @@ query GetAvatarsInformation(
     ...AvatarFields
   }
 }
+
+query GetItemSlot($avatarAddress: Address!, $battleType: BattleType!) {
+  itemSlot(address: $avatarAddress, battleType: $battleType) {
+    battleType
+    costumes
+    equipments
+  }
+}
+
+query GetRuneSlot($avatarAddress: Address!, $battleType: BattleType!) {
+  runeSlot(address: $avatarAddress, battleType: $battleType) {
+    battleType
+    slots {
+      index
+      isLock
+      runeId
+      runeSlotType
+      runeType
+    }
+  }
+}

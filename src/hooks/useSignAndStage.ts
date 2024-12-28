@@ -2,28 +2,34 @@ import { useState } from "react";
 import { useStageTransactionMutation } from "@/graphql-headless/generated/graphql";
 import { getChronoSdk } from "@planetarium/chrono-sdk";
 import { Address } from "@planetarium/account";
-import { PolymorphicAction } from "@planetarium/lib9c";
+import type { PolymorphicAction } from "@planetarium/lib9c";
+import type { GraphQLFormattedError } from "graphql";
 
-type SigningProgress = "None" | "Signing" | "Staging" | "Done";
+export type SigningProgress = "None" | "Signing" | "Staging" | "Done";
+export type SigningError = readonly GraphQLFormattedError[] | Error | null;
 
 interface SigningResult {
   progress: SigningProgress;
   txId: string | null;
-  startSigning: () => void;
-  error: unknown | null;
+  startSigning: (action: PolymorphicAction) => void;
+  error: SigningError;
 }
 
 export function useSignAndStage(
-  signer: Address,
-  action: PolymorphicAction
+  signer: string | null
 ): SigningResult {
   const [progress, setProgress] = useState<SigningProgress>("None");
   const [txId, setTxId] = useState<string | null>(null);
-  const [error, setError] = useState<unknown | null>(null);
+  const [error, setError] = useState<SigningError>(null);
 
   const [stage] = useStageTransactionMutation();
 
-  const startSigning = () => {
+  const startSigning = (action: PolymorphicAction) => {
+    if (signer === null) {
+      setError(new Error("Signer is null"));
+      return;
+    }
+
     setProgress("Signing");
     const chronoWallet = getChronoSdk();
     if (!chronoWallet) {
@@ -33,13 +39,15 @@ export function useSignAndStage(
     }
 
     chronoWallet
-      .sign(signer, action)
+      // @ts-ignore
+      .sign(Address.fromHex(signer), action)
       .then((tx) => {
         setProgress("Staging");
         return stage({
           variables: {
             tx: tx.toString("hex"),
-          },
+          }, context: { clientName: 'headless' }
+
         });
       })
       .then(({ data, errors }) => {
@@ -51,7 +59,7 @@ export function useSignAndStage(
           setProgress("Done");
         }
       })
-      .catch((e: unknown) => {
+      .catch((e: Error) => {
         setError(e);
         setProgress("None");
       });

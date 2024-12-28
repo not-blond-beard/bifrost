@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.9.11",
-    "@planetarium/account": "~4.4.2",
+    "@planetarium/account": "^5.4.2",
     "@planetarium/bencodex": "^0.2.2",
-    "@planetarium/chrono-sdk": "npm:@jsr/planetarium__chrono-sdk@^0.3.0-dev.202407300404008623+ba3a1b2ea062d78a2730af4baf2a4e7a77585358",
-    "@planetarium/lib9c": "npm:@jsr/planetarium__lib9c@^0.3.0-dev.202407170506408289+2af04aea533872ccba4f01c583b2e53694d2e18e",
+    "@planetarium/chrono-sdk": "npm:@jsr/planetarium__chrono-sdk@^0.3.1-dev.202412280921313197+087fb627918491ee649720165d0f8063d76cc993",
+    "@planetarium/lib9c": "npm:@jsr/planetarium__lib9c@^0.5.0-dev.202412221119589915+7eafdd2d67275ee547c74f8eb15e6e4e34499b8c",
     "@tanstack/react-query": "^5.61.3",
     "buffer": "^6.0.3",
     "graphql": "^16.8.1",
