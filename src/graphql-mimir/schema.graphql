@@ -502,6 +502,12 @@ type ItemProduct implements ProductInterface {
   sellerAgentAddress: Address!
 }
 
+type ItemSlotState {
+  battleType: BattleType!
+  costumes: [UUID!]!
+  equipments: [UUID!]!
+}
+
 type ItemUsable implements ItemBaseInterface & ItemUsableInterface {
   itemId: UUID!
   statsMap: StatMap!
@@ -776,6 +782,22 @@ type Query {
   The stake state.
   """
   stake("The address of the agent." address: Address!): StakeState @cost(weight: "10")
+  """
+  Get a itemSlot state by avatar address.
+  
+  
+  **Returns:**
+  The stake state.
+  """
+  itemSlot("The address of the avatar." address: Address! "The battleType." battleType: BattleType!): ItemSlotState @cost(weight: "10")
+  """
+  Get a runeSlot state by avatar address.
+  
+  
+  **Returns:**
+  The stake state.
+  """
+  runeSlot("The address of the avatar." address: Address! "The battleType." battleType: BattleType!): RuneSlotState @cost(weight: "10")
   "Get the world boss."
   worldBoss: WorldBossState! @cost(weight: "10")
   "Get the kill reward record of world boss."
@@ -882,6 +904,20 @@ type Row {
   hitCount: Int!
   cooldown: Int!
   combo: Boolean!
+}
+
+type RuneSlot {
+  index: Int!
+  runeSlotType: RuneSlotType!
+  runeType: RuneType!
+  isLock: Boolean!
+  runeId: Int
+  bencoded: IValue!
+}
+
+type RuneSlotState {
+  battleType: BattleType!
+  slots: [RuneSlot!]!
 }
 
 type RuneState {
@@ -1019,6 +1055,13 @@ enum ArenaType {
   CHAMPIONSHIP
 }
 
+enum BattleType {
+  ADVENTURE
+  ARENA
+  RAID
+  END
+}
+
 enum CurrencyMethodType {
   LEGACY
   CAPPED
@@ -1078,12 +1121,25 @@ enum ProductSortBy {
   GRADE
   PRICE
   UNIT_PRICE
+  CRYSTAL_PER_PRICE
 }
 
 enum ProductType {
   FUNGIBLE
   FUNGIBLE_ASSET_VALUE
   NON_FUNGIBLE
+}
+
+enum RuneSlotType {
+  DEFAULT
+  NCG
+  STAKE
+  CRYSTAL
+}
+
+enum RuneType {
+  STAT
+  SKILL
 }
 
 enum SkillCategory {

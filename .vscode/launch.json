@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Vite Dev Server",
+        "program": "${workspaceFolder}/node_modules/vite/bin/vite.js",
+        "args": ["--port", "5174"],
+        "cwd": "${workspaceFolder}",
+        "runtimeArgs": ["--nolazy"],
+        "sourceMaps": true,
+        "autoAttachChildProcesses": true,
+        "env": {
+          "NODE_ENV": "development"
+        }
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Run TypeScript",
+        "runtimeExecutable": "pnpm",
+        "runtimeArgs": ["exec", "ts-node"],
+        "args": ["src/index.ts"], // 시작 파일 경로 수정 필요
+        "cwd": "${workspaceFolder}",
+        "sourceMaps": true,
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "env": {
+          "NODE_ENV": "development"
+        }
+      },
+      {
+        "type": "pwa-chrome",
+        "request": "launch",
+        "name": "Launch Chrome to Debug",
+        "url": "http://localhost:5174",
+        "webRoot": "${workspaceFolder}/src",
+        "breakOnLoad": true,
+        "sourceMaps": true
+      }
+    ]
+  }
+  
