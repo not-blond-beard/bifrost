@@ -121,3 +121,11 @@ query GetCombinationSlots($avatarAddress: Address!) {
     }
   }
 }
+
+query GetNCG($address: Address!) {
+  balance(address: $address, currencyTicker: "NCG")
+}
+
+query GetCrystal($address: Address!) {
+  balance(address: $address, currencyTicker: "CRYSTAL")
+}

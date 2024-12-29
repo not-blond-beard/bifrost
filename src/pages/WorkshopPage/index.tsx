@@ -61,8 +61,8 @@ const WorkshopPage: React.FC = () => {
 				))}
 				{item.skills.map((skill) => (
 					<p key={skill.skillRow.id}>
-						[Skill] {getSkillName(skill.skillRow.id)} {skill.chance}{" "}
-						{skill.power}
+						[Skill] {getSkillName(skill.skillRow.id)} {skill.power}{" "}
+						{skill.chance}%
 					</p>
 				))}
 			</div>

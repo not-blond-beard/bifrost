@@ -4,6 +4,7 @@ import AccountPage from "./AccountPage";
 import AdventurePage from "./AdventurePage";
 import ActionPointPage from "./ActionPointPage";
 import WorkshopPage from "./WorkshopPage";
+import AssetsPage from "./AssetsPage";
 import NotFoundPage from "./NotFoundPage";
 
-export { ErrorPage, MainPage, AdventurePage, ActionPointPage, WorkshopPage, AccountPage, NotFoundPage };
+export { ErrorPage, MainPage, AdventurePage, ActionPointPage, AssetsPage, WorkshopPage, AccountPage, NotFoundPage };
