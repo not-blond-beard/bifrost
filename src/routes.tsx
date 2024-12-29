@@ -13,6 +13,7 @@ import {
 	AccountPage,
 	AdventurePage,
 	ActionPointPage,
+	WorkshopPage,
 	ErrorPage,
 	NotFoundPage,
 	MainPage,
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
 			<Route path={ROUTES.ACCOUNT} element={<AccountPage />} />
 			<Route index path={ROUTES.ADVENTURE} element={<AdventurePage />} />
 			<Route index path={ROUTES.ACTION_POINT} element={<ActionPointPage />} />
+			<Route index path={ROUTES.WORKSHOP} element={<WorkshopPage />} />
 
 			<Route path={ROUTES.AUTH} element={<RequireAuth />}>
 				{/* Require auth pages */}
