@@ -6,6 +6,7 @@ interface Props {
 	txId: string | null;
 	error: SigningError;
 	planet: Planet;
+	className?: string;
 }
 
 export default function TransactionProgressBar({
@@ -13,6 +14,7 @@ export default function TransactionProgressBar({
 	txId,
 	error,
 	planet,
+	className,
 }: Props) {
 	const handleTxClick = () => {
 		if (txId && progress === "Done") {
@@ -25,7 +27,7 @@ export default function TransactionProgressBar({
 		SigningProgress,
 		{ percent: number; label: string }
 	> = {
-		None: { percent: 0, label: "" },
+		None: { percent: 0, label: "Wait..." },
 		Signing: { percent: 30, label: "Signing" },
 		Staging: { percent: 60, label: "Staging" },
 		Done: { percent: 100, label: "Click! check tx" },
@@ -34,19 +36,20 @@ export default function TransactionProgressBar({
 	const currentProgress = progressMap[progress];
 
 	return (
-		<div className="w-full">
-			<div className="w-full bg-bright-black rounded-full h-5">
+		<div className={`w-full ${className}`}>
+			<p className="text-s">
+				{error ? error.toString() : currentProgress.label}
+			</p>
+			<div className="w-full bg-bright-black h-1">
 				<div
 					onClick={handleTxClick}
-					className={`h-5 bg-bright-green text-s font-medium text-white text-center p-1 transition-all duration-1200 leading-none rounded-full ${currentProgress.percent === 100 && "cursor-pointer"}`}
+					className={`h-1 bg-bright-green transition-all duration-1200 leading-none ${currentProgress.percent === 100 && "cursor-pointer"}`}
 					style={{
 						width: `${currentProgress.percent}%`,
 						opacity: progress === "None" ? 0 : 1,
 						transition: "opacity 0.5s ease, width 1s ease",
 					}}
-				>
-					{error ? error.toString() : currentProgress.label}
-				</div>
+				></div>
 			</div>
 		</div>
 	);

@@ -16,6 +16,7 @@ enum ROUTES {
   MONSTER_COLLECTION = "/auth/monster-collection",
   PATROL_REWARD = "/auth/patrol-reward",
   ADVENTURE = "/auth/adventure",
+  ACTION_POINT = "/auth/action-point",
   COLLECTION = "/auth/collection",
 }
 
