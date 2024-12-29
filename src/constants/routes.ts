@@ -10,6 +10,7 @@ enum ROUTES {
   MAIL = "/auth/mail",
 
   ASSETS = "/auth/assets",
+  RUNE = "/auth/rune",
   INVENTORY = "/auth/inventory",
   PRODUCTION_STATUS = "/auth/production-status",
   ARENA = "/auth/arena",

@@ -15,6 +15,7 @@ const NavigationList: Array<Navigation> = [
 	{ name: "ActionPoint", path: ROUTES.ACTION_POINT },
 	{ name: "Adventure", path: ROUTES.ADVENTURE },
 	{ name: "Workshop", path: ROUTES.WORKSHOP },
+	{ name: "Rune", path: ROUTES.RUNE },
 	// { name: "World boss", path: ROUTES.WORLD_BOSS },
 	// { name: "Arena", path: ROUTES.ARENA },
 	// { name: "Monster collection", path: ROUTES.MONSTER_COLLECTION },
