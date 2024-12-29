@@ -11,7 +11,7 @@ interface Navigation {
 
 const NavigationList: Array<Navigation> = [
 	// { name: "Market", path: ROUTES.MARKET },
-	// { name: "Workshop", path: ROUTES.WORKSHOP },
+	{ name: "Workshop", path: ROUTES.WORKSHOP },
 	// { name: "World boss", path: ROUTES.WORLD_BOSS },
 	// { name: "Arena", path: ROUTES.ARENA },
 	// { name: "Monster collection", path: ROUTES.MONSTER_COLLECTION },

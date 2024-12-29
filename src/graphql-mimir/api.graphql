@@ -73,3 +73,51 @@ query GetActionPoint($avatarAddress: Address!) {
   actionPoint(address: $avatarAddress)
   dailyRewardReceivedBlockIndex(address: $avatarAddress)
 }
+
+query GetCombinationSlots($avatarAddress: Address!) {
+  combinationSlots(avatarAddress: $avatarAddress) {
+    key
+    value {
+      index
+      startBlockIndex
+      unlockBlockIndex
+      result {
+        itemUsable {
+          elementalType
+          grade
+          id
+          itemId
+          itemSubType
+          itemType
+          requiredBlockIndex
+          statsMap {
+            value {
+              key
+              value {
+                additionalValue
+                baseValue
+                statType
+              }
+            }
+          }
+          skills {
+            chance
+            power
+            referencedStatType
+            statPowerRatio
+            skillRow {
+              combo
+              cooldown
+              elementalType
+              hitCount
+              id
+              skillCategory
+              skillTargetType
+              skillType
+            }
+          }
+        }
+      }
+    }
+  }
+}
