@@ -112,14 +112,17 @@ function ConnectChrono() {
 		switch (chronoStatus) {
 			case ChronoStatus.NOT_INSTALLED:
 				return (
-					<a
-						className="underline"
-						href={ChronoDownloadLink}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						&gt;&gt;&gt; Install Chrono
-					</a>
+					<>
+						<a
+							className="underline"
+							href={ChronoDownloadLink}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							&gt;&gt;&gt; Install Chrono
+						</a>
+						<p>You cannot access most features until you connect Chrono.</p>
+					</>
 				);
 
 			case ChronoStatus.LOADING:
