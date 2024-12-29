@@ -12,11 +12,13 @@ import skillNames from "@/assets/skill_name.json";
 
 const getItemName = (id: number): string => {
 	const itemId = `ITEM_NAME_${id}`;
+	// @ts-ignore
 	return itemNames[itemId]?.English || "Unknown Item";
 };
 
 const getSkillName = (id: number): string => {
 	const skillId = `SKILL_NAME_${id}`;
+	// @ts-ignore
 	return skillNames[skillId]?.English || "Unknown Item";
 };
 
@@ -96,7 +98,10 @@ const WorkshopPage: React.FC = () => {
 			<TerminalContainer title="Workshop" type="highlight" className="flex">
 				<div className="w-full flex">
 					<div className="grid grid-cols-1 gap-4">
-						{slotData?.combinationSlots.map((slot) => renderSlot(slot.value))}
+						{slotData?.combinationSlots.map((slot) =>
+							// @ts-ignore
+							renderSlot(slot.value),
+						)}
 					</div>
 				</div>
 			</TerminalContainer>

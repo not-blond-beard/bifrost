@@ -23,28 +23,28 @@ const NavigationList: Array<Navigation> = [
 	// { name: "Collection", path: ROUTES.COLLECTION },
 ];
 
-const MenuList: Array<Navigation> = [
-	{
-		name: "Ranking",
-		path: ROUTES.RANKING,
-	},
-	{
-		name: "Inventory",
-		path: ROUTES.INVENTORY,
-	},
-	{
-		name: "Production status",
-		path: ROUTES.PRODUCTION_STATUS,
-	},
-	{
-		name: "Mail",
-		path: ROUTES.MAIL,
-	},
-	{
-		name: "Settings",
-		path: ROUTES.SETTINGS,
-	},
-];
+// const MenuList: Array<Navigation> = [
+// 	{
+// 		name: "Ranking",
+// 		path: ROUTES.RANKING,
+// 	},
+// 	{
+// 		name: "Inventory",
+// 		path: ROUTES.INVENTORY,
+// 	},
+// 	{
+// 		name: "Production status",
+// 		path: ROUTES.PRODUCTION_STATUS,
+// 	},
+// 	{
+// 		name: "Mail",
+// 		path: ROUTES.MAIL,
+// 	},
+// 	{
+// 		name: "Settings",
+// 		path: ROUTES.SETTINGS,
+// 	},
+// ];
 
 export default function Lobby() {
 	const { avatarAddress, avatarInfo } = useAuthStore();

@@ -6,6 +6,7 @@ import runeNames from "@/assets/rune_name.json";
 
 const getRuneName = (id: number): string => {
 	const runeId = `RUNE_NAME_${id}`;
+	// @ts-ignore
 	return runeNames[runeId]?.English || "Unknown Rune";
 };
 
