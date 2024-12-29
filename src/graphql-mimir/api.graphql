@@ -129,3 +129,10 @@ query GetNCG($address: Address!) {
 query GetCrystal($address: Address!) {
   balance(address: $address, currencyTicker: "CRYSTAL")
 }
+
+query GetRunes($avatarAddress: Address!) {
+  runes(avatarAddress: $avatarAddress) {
+    level
+    runeId
+  }
+}
