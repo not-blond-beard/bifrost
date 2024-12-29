@@ -17,6 +17,7 @@ import {
 	ErrorPage,
 	NotFoundPage,
 	MainPage,
+	AssetsPage,
 } from "@/pages";
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
 			<Route index path={ROUTES.ADVENTURE} element={<AdventurePage />} />
 			<Route index path={ROUTES.ACTION_POINT} element={<ActionPointPage />} />
 			<Route index path={ROUTES.WORKSHOP} element={<WorkshopPage />} />
+			<Route index path={ROUTES.ASSETS} element={<AssetsPage />} />
 
 			<Route path={ROUTES.AUTH} element={<RequireAuth />}>
 				{/* Require auth pages */}

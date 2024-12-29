@@ -9,6 +9,7 @@ enum ROUTES {
   WORKSHOP = "/auth/workshop",
   MAIL = "/auth/mail",
 
+  ASSETS = "/auth/assets",
   INVENTORY = "/auth/inventory",
   PRODUCTION_STATUS = "/auth/production-status",
   ARENA = "/auth/arena",
