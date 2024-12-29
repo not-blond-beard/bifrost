@@ -1,7 +1,7 @@
 import {
-  createRoutesFromElements,
-  createBrowserRouter,
-  Route,
+	createRoutesFromElements,
+	createBrowserRouter,
+	Route,
 } from "react-router-dom";
 
 import Root from "./App";
@@ -10,27 +10,29 @@ import RequireAuth from "@/components/RequireAuth";
 import ROUTES from "@/constants/routes";
 
 import {
-  AccountPage,
-  AdventurePage,
-  ErrorPage,
-  NotFoundPage,
-  MainPage,
+	AccountPage,
+	AdventurePage,
+	ActionPointPage,
+	ErrorPage,
+	NotFoundPage,
+	MainPage,
 } from "@/pages";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path={"/"} element={<Root />} errorElement={<ErrorPage />}>
-      <Route index path={ROUTES.MAIN} element={<MainPage />} />
-      <Route path={ROUTES.ACCOUNT} element={<AccountPage />} />
-      <Route index path={ROUTES.ADVENTURE} element={<AdventurePage />} />
+	createRoutesFromElements(
+		<Route path={"/"} element={<Root />} errorElement={<ErrorPage />}>
+			<Route index path={ROUTES.MAIN} element={<MainPage />} />
+			<Route path={ROUTES.ACCOUNT} element={<AccountPage />} />
+			<Route index path={ROUTES.ADVENTURE} element={<AdventurePage />} />
+			<Route index path={ROUTES.ACTION_POINT} element={<ActionPointPage />} />
 
-      <Route path={ROUTES.AUTH} element={<RequireAuth />}>
-        {/* Require auth pages */}
-      </Route>
+			<Route path={ROUTES.AUTH} element={<RequireAuth />}>
+				{/* Require auth pages */}
+			</Route>
 
-      <Route path="*" element={<NotFoundPage />} />
-    </Route>
-  )
+			<Route path="*" element={<NotFoundPage />} />
+		</Route>,
+	),
 );
 
 export default router;

@@ -68,3 +68,8 @@ query GetRuneSlot($avatarAddress: Address!, $battleType: BattleType!) {
     }
   }
 }
+
+query GetActionPoint($avatarAddress: Address!) {
+  actionPoint(address: $avatarAddress)
+  dailyRewardReceivedBlockIndex(address: $avatarAddress)
+}
