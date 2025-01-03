@@ -26,14 +26,13 @@ const router = createBrowserRouter(
 		<Route path={"/"} element={<Root />} errorElement={<ErrorPage />}>
 			<Route index path={ROUTES.MAIN} element={<MainPage />} />
 			<Route path={ROUTES.ACCOUNT} element={<AccountPage />} />
+			<Route index path={ROUTES.ADVENTURE} element={<AdventurePage />} />
+			<Route index path={ROUTES.ACTION_POINT} element={<ActionPointPage />} />
+			<Route index path={ROUTES.WORKSHOP} element={<WorkshopPage />} />
+			<Route index path={ROUTES.ASSETS} element={<AssetsPage />} />
+			<Route index path={ROUTES.RUNE} element={<RunePage />} />
 
-			<Route path={ROUTES.AUTH} element={<RequireAuth />}>
-				<Route index path={ROUTES.ADVENTURE} element={<AdventurePage />} />
-				<Route index path={ROUTES.ACTION_POINT} element={<ActionPointPage />} />
-				<Route index path={ROUTES.WORKSHOP} element={<WorkshopPage />} />
-				<Route index path={ROUTES.ASSETS} element={<AssetsPage />} />
-				<Route index path={ROUTES.RUNE} element={<RunePage />} />
-			</Route>
+			<Route path={ROUTES.AUTH} element={<RequireAuth />} />
 
 			<Route path="*" element={<NotFoundPage />} />
 		</Route>,
